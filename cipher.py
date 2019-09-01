@@ -2,7 +2,7 @@
 """
 Created on Mon Aug 26 20:39:03 2019
 
-@author: billj
+@author: Veloc1ty
 """
 
 # time module
