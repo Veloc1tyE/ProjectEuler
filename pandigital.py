@@ -104,22 +104,31 @@ indices = input().split(' ')
 for i in range(len(indices)):
     indices[i] = int(indices[i])
     
-# Helper functions
+# Chapernowne section
 
 def sumofDigits(n):
+    # Simply sums up the digits up to a point
+    # Formula sourced from wikipedia entry on Chapernowne's constant
     numerator = 9*(10**n*(n+1)) - 10**(n+1) + 1
     return int(numerator / 9)
 
 def findID(number, i):
+    # Process for finding particular Chapernowne entry section
+    # This enables us to determine the behaviour of numbers around i
     return number - i
 
 def findNumber(ID, n):
+    # Given the location and indice, we can find the exact number in
+    # the Chapernowne expansion
     return (10**n-1) - math.floor(ID/n)
 
 def findRes(ID, n):
+    # Find indice of digit within determined number
     return ID % n + 1
 
 def findChampernowne():
+    # Work house function to find a particular digit in Chapernowne expansion
+    # input() refers to hackerrank implementation (We find the sum of digits up to this point)
     indices = input().split(' ')
     for i in range(len(indices)):
         indices[i] = int(indices[i])
@@ -128,13 +137,20 @@ def findChampernowne():
 
     for index in indices:
         num_digits = len(str(index))-1
-            
+        
+        # Find the sum of digits up to a point
+        # This helps us find our desired digit
         number = sumofDigits(num_digits)
-
+        
+        # Adjustment, number is only < index for 1 digit numbers
+        # sumOfDigits will return 0 for number in this case
+        # Due to implementation nature
+        # So we must manually adjust
         if number < index:
             num_digits += 1
             number = sumofDigits(num_digits)
-
+        
+        # Now we zero in on the exact digit we're looking for
         ID = findID(number, index)
         num = findNumber(ID, num_digits)
         res = findRes(ID, num_digits)
@@ -143,8 +159,11 @@ def findChampernowne():
     
     print(total)
 
+# How many times do we want to test it?
 tests = int(input())
 
-for i in range(tests):
-    findChampernowne()
+# Let's go!
+if __name__ == '__main__':
+    for i in range(tests):
+        findChampernowne()
     
