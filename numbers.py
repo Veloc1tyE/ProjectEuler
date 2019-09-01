@@ -2,7 +2,7 @@
 """
 Created on Wed Jul  3 22:38:07 2019
 
-@author: billj
+@author: Veloc1ty
 """
 
 import math
