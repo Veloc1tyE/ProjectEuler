@@ -19,8 +19,7 @@ def Hexagon(n):
     return n*(2*n-1)
 
 def Solver(a, b, c):
-    """Solves the Diophantine equation
-       """
+    """"""
     D = b**2 - 4*a*c
     if D < 0:
         return None
