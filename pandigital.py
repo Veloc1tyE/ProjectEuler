@@ -2,9 +2,10 @@
 """
 Created on Wed Jul 10 10:29:05 2019
 
-@author: billj
+@author: Veloc1ty
 """
 
+# A range of playtools for the PE arena
 from itertools import permutations
 import math
 
@@ -15,6 +16,8 @@ number = number[0:index+1]
 numbers = [''.join(p) for p in permutations(number)]
 
 def isDivisible(number, primes):
+    # Figure out if a section of a number is divisible by primes
+    # Useful for chopping and changing and defining properties relating to PE
     for i in range(1, len(number)-2):
         if int(number[i:i+3]) % primes[i]:
             return False
@@ -23,9 +26,11 @@ def isDivisible(number, primes):
 total = 0
 primes = [1, 2, 3, 5, 7, 11, 13, 17]
 
-for number in numbers:
-    if isDivisible(number, primes):
-        total += int(number)
+# Are the subsets of the numbers divisible by primes?
+if __name__ == '__main__':
+    for number in numbers:
+        if isDivisible(number, primes):
+            total += int(number)
 
 print(total)
 
@@ -38,7 +43,9 @@ def isPrime(number):
 
 
 def calculatePrimes(number):
-    primes = {2,}
+    # Calculate a vector of primes
+    # Dividing by primes instead of all numbers optimises the code
+    primes = [2]
     for i in range(3, number, 2):
         isPrime = True
         for element in primes:
@@ -48,7 +55,7 @@ def calculatePrimes(number):
                 isPrime = False
                 break
         if isPrime:
-            primes.add(i)
+            primes.append(i)
     return primes
 
 number = '987654321'
@@ -96,6 +103,8 @@ for i in range(tests):
 indices = input().split(' ')
 for i in range(len(indices)):
     indices[i] = int(indices[i])
+    
+# Helper functions
 
 def sumofDigits(n):
     numerator = 9*(10**n*(n+1)) - 10**(n+1) + 1
