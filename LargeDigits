@@ -1,8 +1,0 @@
-# Efficient method to find last digits of 28433*2**(7830457))+1
-number = 28433
-
-for i in range(7830457):
-    number = number*2
-    number = number % 10**10
-    
-number += 1
