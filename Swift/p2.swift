@@ -1,5 +1,6 @@
 import Foundation
 
+// Hackerrank implementation
 let tests = Int(readLine()!)
 
 for i in 1...tests! {
